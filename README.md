@@ -1,5 +1,5 @@
 CRIAR GIT
-1-criar repositorio
+<br>1-criar repositorio
 2-pasta e git init
 3-git branch -M main
 4-git remote add origin 
