@@ -10,7 +10,7 @@ namespace SimonSays
         /// The provider responsible for generating the patterns used in the 
         /// game.
         /// </summary>
-        private readonly CommandProvider commandProvider;
+        private readonly CommandProvider commandProvider = new CommandProvider();
 
         /// <summary>
         /// A list to store the last 5 game results for the game stats board.
@@ -24,7 +24,7 @@ namespace SimonSays
         /// </summary>
         public Game()
         {
-            // ////////// => TO IMPLEMENT <= //////////// //
+            gameStats = new GameResult[10];
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace SimonSays
                 switch (choice)
                 {
                     case "Start Game":
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        StartGame();
                         break;
                     case "View Game Stats":
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        ShowGameStats();
                         break;
                     case "Quit":
                         return;
@@ -69,7 +69,7 @@ namespace SimonSays
 
             while (true)
             {
-                string pattern = // ////////// => TO IMPLEMENT <= //////////// //
+                string pattern = commandProvider.GeneratePattern(round);
                 AnsiConsole.Clear();
                 AnsiConsole.MarkupLine("[bold green]Simon Says Follow this" + 
                     " Pattern:[/]");
@@ -80,11 +80,11 @@ namespace SimonSays
                     + " the Pattern (use W, A, S, D):[/] ");
                 stopwatch.Stop();
 
-                bool isCorrect = // ////////// => TO IMPLEMENT <= //////////// //
+                bool isCorrect = userInput==pattern;
 
                 if (!isCorrect)
                 {
-                    double timeTaken = // ////////// => TO IMPLEMENT <= //////////// //
+                    double timeTaken = (double)stopwatch.Elapsed.Seconds;
 
                     AnsiConsole.MarkupLine("\n[bold red]You Lost![/]");
                     AnsiConsole.MarkupLine(
@@ -95,11 +95,11 @@ namespace SimonSays
                     // Shift existing entries
                     for (int i = gameStats.Length - 1; i > 0; i--)
                     {
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        gameStats[i] = gameStats[i-1];
                     }
 
                     // Add new result at the beginning
-                    gameStats[0] = // ////////// => TO IMPLEMENT <= //////////// //
+                    gameStats[0] = new GameResult(pattern, timeTaken, round);
 
                     AnsiConsole.Markup("\n[bold green]Press Enter to Return to"
                         + " the Menu...[/]");
@@ -127,12 +127,13 @@ namespace SimonSays
 
                     if (gameStats[i] == null)
                     {
-                        // ////////// => TO IMPLEMENT <= //////////// //
+                        table.AddRow("-", "-", "-", "-");
+                        break;
                     }
-
-                    // Add row to table
-                    // Table.AddRow() only accepts strings
-                    // ////////// => TO IMPLEMENT <= //////////// //
+                    table.AddRow(i.ToString(), 
+                                 gameStats[i].Round.ToString(),
+                                 gameStats[i].TimeTaken.ToString(), 
+                                 gameStats[i].LosingPattern.ToString());
                 }
             }
 

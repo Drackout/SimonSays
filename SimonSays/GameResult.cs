@@ -44,7 +44,11 @@ namespace SimonSays
         /// type <see cref="int"/>.</param>
         public GameResult(string losingPattern, double timeTaken, int round)
         {
-            // ////////// => TO IMPLEMENT <= //////////// //
+            LosingPattern = losingPattern; 
+            TimeTaken = timeTaken; 
+            Round = round; 
         }
+        public GameResult()
+        {}
     }
 }
