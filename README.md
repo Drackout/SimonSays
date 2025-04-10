@@ -1,24 +1,24 @@
 CRIAR GIT
 <br>1-criar repositorio
-2-pasta e git init
-3-git branch -M main
-4-git remote add origin 
-5-git pull
-6-git push -u origin main
+<br>2-pasta e git init
+<br>3-git branch -M main
+<br>4-git remote add origin 
+<br>5-git pull
+<br>6-git push -u origin main
 
 CRIAR SOLUÇÃO
-1-cd MinhaPastaDeLP1 (nome da pasta é escolha vossa)
-2-mkdir LP1Semana01
-3-cd LP1Semana01
-4-dotnet new sln (cria solução)
-5-dotnet new gitignore
+<br>1-cd MinhaPastaDeLP1 (nome da pasta é escolha vossa)
+<br>2-mkdir LP1Semana01
+<br>3-cd LP1Semana01
+<br>4-dotnet new sln (cria solução)
+<br>5-dotnet new gitignore
 
 CRIAR PROJETO
-6-dotnet new lp1console --name A
+<br>6-dotnet new lp1console --name A
 (cria projeto”)
-7-dotnet sln add A 
+<br>7-dotnet sln add A 
 (adiciona projeto à solução)
 
 ADD LIBRARIES
-1-cd MyProject
-2-dotnet add package <biblioteca>
+<br>1-cd MyProject
+<br>2-dotnet add package <biblioteca>
