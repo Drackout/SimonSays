@@ -20,7 +20,7 @@ namespace SimonSays
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// Sets up the command provider, and initializes the game
-        /// Stats.
+        /// stats.
         /// </summary>
         public Game()
         {
